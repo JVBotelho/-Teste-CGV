@@ -28,14 +28,16 @@ namespace Teste_CGV.Controllers
         // GET: AdvogadoController
         public ActionResult Index()
         {
-            var clienteViewModel = _mapper.Map<IEnumerable<Advogado>, IEnumerable<AdvogadoViewModel>>(_repo.GetAll());
-            return View(clienteViewModel);
+            var advogadoViewModel = _mapper.Map<IEnumerable<Advogado>, IEnumerable<AdvogadoViewModel>>(_repo.GetAll());
+            return View(advogadoViewModel);
         }
 
         // GET: AdvogadoController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            Advogado _result = _repo.GetbyId(id);
+            var advogadoVM = _mapper.Map<Advogado, AdvogadoViewModel>(_result);
+            return View(advogadoVM);
         }
 
         // GET: AdvogadoController/Create

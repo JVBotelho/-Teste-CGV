@@ -65,7 +65,7 @@ namespace Teste_CGV
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Advogado}/{action=Index}/{id?}");
             });
         }
     }
